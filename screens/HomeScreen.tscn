@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://screens/BaseScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://screens/HomeScreen.gd" type="Script" id=2]
+[ext_resource path="res://entities/NamedColumn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/column-elements/SpacedTextEdit.tscn" type="PackedScene" id=4]
+
+[node name="HomeScreen" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ColorRect" parent="Display" index="0"]
+color = Color( 0.223529, 0.141176, 0, 1 )
+
+[node name="HBoxContainer" parent="Display/MarginContainer" index="0"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Options" parent="Display/MarginContainer/HBoxContainer" index="0" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 520.0
+margin_bottom = 880.0
+column_title_text = "FPWB"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Display/MarginContainer/HBoxContainer" index="1"]
+margin_left = 530.0
+margin_right = 1050.0
+margin_bottom = 880.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+
+[node name="LastProject" parent="Display/MarginContainer/HBoxContainer/VBoxContainer" index="0" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 520.0
+margin_bottom = 435.0
+column_title_text = "Last Project"
+
+[node name="AllProjects" parent="Display/MarginContainer/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 445.0
+margin_right = 520.0
+margin_bottom = 880.0
+column_title_text = "All Projects"
+
+[node name="Notes" parent="Display/MarginContainer/HBoxContainer" index="2" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1060.0
+margin_top = 0.0
+margin_right = 1580.0
+margin_bottom = 880.0
+column_title_text = "Notes"
+
+[node name="ColorRect" parent="Display/MarginContainer/HBoxContainer/Notes" index="0"]
+margin_right = 520.0
+
+[node name="MarginContainer" parent="Display/MarginContainer/HBoxContainer/Notes" index="1"]
+margin_right = 520.0
+
+[node name="VBoxContainer" parent="Display/MarginContainer/HBoxContainer/Notes/MarginContainer" index="0"]
+margin_right = 510.0
+
+[node name="CenteredLabel" parent="Display/MarginContainer/HBoxContainer/Notes/MarginContainer/VBoxContainer" index="0"]
+margin_right = 500.0
+
+[node name="SpacedTextEdit" parent="Display/MarginContainer/HBoxContainer/Notes/MarginContainer/VBoxContainer" index="1" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 64.0
+margin_right = 500.0
+margin_bottom = 860.0
+
+[editable path="Display/MarginContainer/HBoxContainer/Notes"]

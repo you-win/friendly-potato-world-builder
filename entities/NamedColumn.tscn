@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/BaseColumn.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/column-elements/CenteredLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/NamedColumn.gd" type="Script" id=3]
+
+[node name="NamedColumn" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="CenteredLabel" parent="MarginContainer/VBoxContainer" index="0" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1560.0
+margin_bottom = 34.0

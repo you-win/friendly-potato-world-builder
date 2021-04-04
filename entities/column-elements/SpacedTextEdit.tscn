@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/column-elements/BaseElement.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/column-elements/SpacedTextEdit.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+draw_center = false
+
+[node name="SpacedTextEdit" instance=ExtResource( 1 )]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer" index="0"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1590.0
+margin_bottom = 890.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/normal = SubResource( 1 )

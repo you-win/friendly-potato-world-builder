@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/PotatoPressed.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/PotatoHover.tres" type="StyleBox" id=2]
+[ext_resource path="res://entities/column-elements/BaseElement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/PotatoNormal.tres" type="StyleBox" id=4]
+[ext_resource path="res://entities/column-elements/CenteredButton.gd" type="Script" id=5]
+
+[node name="CenteredButton" instance=ExtResource( 3 )]
+script = ExtResource( 5 )
+
+[node name="Button" type="Button" parent="MarginContainer" index="0"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1590.0
+margin_bottom = 890.0
+rect_min_size = Vector2( 0, 20 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/normal = ExtResource( 4 )

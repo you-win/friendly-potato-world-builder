@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/PotatoPressed.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/PotatoHover.tres" type="StyleBox" id=2]
+[ext_resource path="res://assets/PotatoNormal.tres" type="StyleBox" id=3]
+[ext_resource path="res://entities/OmniMenuButton.gd" type="Script" id=4]
+
+[node name="OmniMenuButton" type="MenuButton"]
+margin_right = 100.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 20 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/normal = ExtResource( 3 )
+text = "File"
+flat = false
+items = [ "New", null, 0, false, false, 0, 0, null, "", false, "Save", null, 0, false, false, 1, 0, null, "", false, "Load", null, 0, false, false, 2, 0, null, "", false ]
+switch_on_hover = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

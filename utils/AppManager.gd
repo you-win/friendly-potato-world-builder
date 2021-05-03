@@ -6,6 +6,8 @@ var sdu: SaveDataUtil = SaveDataUtil.new()
 
 var current_save_data: Dictionary
 
+var current_screen: BaseScreen
+
 ###############################################################################
 # Builtin functions                                                           #
 ###############################################################################
@@ -25,6 +27,14 @@ func _ready() -> void:
 ###############################################################################
 # Public functions                                                            #
 ###############################################################################
+
+func change_screen(screen_path: String, data: Dictionary = Dictionary()) -> void:
+	var screen: BaseScreen = load(screen_path).instance()
+	current_screen.queue_free()
+	yield(get_tree(), "idle_frame")
+	get_tree().root.add_child(screen)
+	if not data.empty():
+		screen.load_data(data)
 
 func log_message(message: String, is_error: bool = false) -> void:
 	if is_error:

@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://screens/BaseScreen.gd"
 }, {
 "base": "BaseElement",
+"class": "CenteredButton",
+"language": "GDScript",
+"path": "res://entities/column-elements/CenteredButton.gd"
+}, {
+"base": "BaseElement",
 "class": "CenteredLabel",
 "language": "GDScript",
 "path": "res://entities/column-elements/CenteredLabel.gd"
@@ -43,6 +48,11 @@ _global_script_classes=[ {
 "class": "InputToInput",
 "language": "GDScript",
 "path": "res://entities/column-elements/InputToInput.gd"
+}, {
+"base": "BaseScreen",
+"class": "ProjectScreen",
+"language": "GDScript",
+"path": "res://screens/ProjectScreen.gd"
 }, {
 "base": "Reference",
 "class": "SaveDataUtil",
@@ -59,9 +69,11 @@ _global_script_class_icons={
 "BaseElement": "",
 "BaseHboxElement": "",
 "BaseScreen": "",
+"CenteredButton": "",
 "CenteredLabel": "",
 "HomeScreen": "",
 "InputToInput": "",
+"ProjectScreen": "",
 "SaveDataUtil": "",
 "SpacedTextEdit": ""
 }
@@ -70,7 +82,7 @@ _global_script_class_icons={
 
 config/name="Friendly Potato World Builder"
 run/main_scene="res://screens/HomeScreen.tscn"
-config/icon="res://assets/icon.png"
+config/icon="res://assets/potato-world.png"
 
 [autoload]
 
@@ -81,7 +93,7 @@ OmniLayer="*res://screens/OmniLayer.tscn"
 
 window/size/width=1600
 window/size/height=900
-window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [input]
 

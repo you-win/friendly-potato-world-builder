@@ -1,41 +1,32 @@
-class_name HomeScreen
-extends BaseScreen
+extends MenuButton
 
-const PROJECT_SCREEN_PATH: String = "res://screens/ProjectScreen.tscn"
+signal option_selected(text)
+
+onready var popup: PopupMenu = get_popup()
 
 ###############################################################################
 # Builtin functions                                                           #
 ###############################################################################
 
 func _ready() -> void:
-	if not AppManager.current_save_data.empty():
-		_load_from_data(AppManager.current_save_data)
-	else:
-		_load_defaults()
-	
-	$Display/MarginContainer/HBoxContainer/Options/MarginContainer/VBoxContainer/NewProjectButton.button.connect("pressed", self, "_on_new_project_button_pressed")
+	popup.add_stylebox_override("panel", load("res://assets/PotatoNormal.tres"))
+	popup.add_stylebox_override("hover", load("res://assets/PotatoHover.tres"))
+	popup.connect("index_pressed", self, "_on_index_pressed")
 
 ###############################################################################
 # Connections                                                                 #
 ###############################################################################
 
-func _on_new_project_button_pressed() -> void:
-	AppManager.change_screen(PROJECT_SCREEN_PATH)
+func _on_index_pressed(index: int) -> void:
+	emit_signal("option_selected", popup.get_item_text(index))
 
 ###############################################################################
 # Private functions                                                           #
 ###############################################################################
 
-func _load_defaults() -> void:
-	pass
-
-func _load_from_data(data: Dictionary) -> void:
-	pass
-
 ###############################################################################
 # Public functions                                                            #
 ###############################################################################
 
-func load_data(data: Dictionary) -> void:
-	# Intentionally skipped
-	pass
+func connect_to_popup(target: Node, function_name: String) -> void:
+	connect("option_selected", target, function_name)
